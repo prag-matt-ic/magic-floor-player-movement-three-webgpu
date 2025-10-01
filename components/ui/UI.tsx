@@ -280,7 +280,7 @@ const CenterStage: FC<SectionProps> = ({ transitionStatus }) => {
   return (
     <section
       ref={container}
-      className="absolute grid grid-cols-3 grid-rows-1 px-8 py-4 bg-linear-0 from-[#191818]/40 content-center items-center to-[#191818]/0 inset-x-0 bottom-0 opacity-0"
+      className="absolute grid grid-cols-[2fr_3fr_2fr] gap-3 grid-rows-1 px-8 py-4 bg-linear-0 from-[#191818]/40 content-center items-center to-[#191818]/0 inset-x-0 bottom-0 opacity-0"
     >
       {/* Social bar in bottom-left */}
       <div className="center-fade-in pointer-events-auto flex items-center gap-2">
@@ -298,8 +298,8 @@ const CenterStage: FC<SectionProps> = ({ transitionStatus }) => {
       </div>
 
       {/* Central control hints */}
-      <div className="flex justify-center text-white gap-4">
-        <div className="center-fade-in flex items-center gap-1.5">
+      <div className="flex justify-center text-white gap-4 whitespace-nowrap">
+        <div className="center-fade-in flex items-center gap-1.5 ">
           <Hand className="size-6" strokeWidth={1.5} />
           <span className="opacity-80">Click and Pan</span>
         </div>

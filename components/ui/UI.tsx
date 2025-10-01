@@ -255,14 +255,12 @@ const CenterStage: FC<SectionProps> = ({ transitionStatus }) => {
           ".center-fade-in",
           {
             opacity: 0,
-            y: 10,
-            scale: 1.02,
+            y: 24,
           },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.35,
+            duration: 0.4,
             ease: "power1.out",
             stagger: 0.06,
           }
@@ -282,17 +280,17 @@ const CenterStage: FC<SectionProps> = ({ transitionStatus }) => {
   return (
     <section
       ref={container}
-      className="absolute grid grid-cols-3 grid-rows-1 bg-linear-0 from-black/20 content-center items-center to-black/0 inset-x-0 bottom-0 opacity-0"
+      className="absolute grid grid-cols-3 grid-rows-1 px-8 py-4 bg-linear-0 from-[#191818]/40 content-center items-center to-[#191818]/0 inset-x-0 bottom-0 opacity-0"
     >
       {/* Social bar in bottom-left */}
-      <div className="pointer-events-auto rounded-tr-xl p-2 w-fit flex items-center gap-1.5">
+      <div className="center-fade-in pointer-events-auto flex items-center gap-2">
         {SOCIALS.map((social, index) => (
           <a
             key={index}
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="center-fade-in p-2"
+            className="center-fade-in p-1.5"
           >
             <Image src={social.iconSrc} alt={social.alt} className="size-6" />
           </a>
@@ -300,21 +298,21 @@ const CenterStage: FC<SectionProps> = ({ transitionStatus }) => {
       </div>
 
       {/* Central control hints */}
-      <div className="center-fade-in flex justify-center text-white gap-3">
-        <div className="flex items-center gap-2">
+      <div className="flex justify-center text-white gap-4">
+        <div className="center-fade-in flex items-center gap-1.5">
           <Hand className="size-6" strokeWidth={1.5} />
           <span className="opacity-80">Click and Pan</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="center-fade-in flex items-center gap-1.5">
           <Mouse className="size-6" strokeWidth={1.5} />
           <span className="opacity-80">Wheel and Zoom</span>
         </div>
       </div>
 
       {/* Exit button */}
-      <div className="center-fade-in p-4 text-white flex justify-end gap-3">
+      <div className="center-fade-in text-white flex justify-end gap-3">
         <button
-          className="flex pointer-events-auto items-center py-2 px-5  text-white backdrop-blur-sm gap-3 border border-black/20 rounded-full bg-linear-70 from-black/5 to-black/15"
+          className="flex pointer-events-auto items-center py-2 px-5 text-white backdrop-blur-sm gap-3 border border-black/20 rounded-full bg-linear-70 from-black/5 to-black/15"
           onClick={() => setStage(Stage.INNER)}
         >
           <ArrowLeft className="size-5" strokeWidth={2} />

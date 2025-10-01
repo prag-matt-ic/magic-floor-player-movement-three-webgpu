@@ -85,7 +85,7 @@ export type GameState = {
 };
 
 export const useGameStore = create<GameState>((set) => ({
-  stage: Stage.LANDING,
+  stage: process.env.NODE_ENV === "production" ? Stage.LANDING : Stage.LANDING,
   setStage: (stage) => set({ stage }),
   isMuted: true,
   setIsMuted: (isMuted) => set({ isMuted }),

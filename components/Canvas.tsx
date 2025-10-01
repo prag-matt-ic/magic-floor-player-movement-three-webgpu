@@ -4,6 +4,10 @@ import { Canvas, extend, type ThreeToJSXElements } from "@react-three/fiber";
 import { type FC, useLayoutEffect, useMemo, useState } from "react";
 import { type WebGPURendererParameters } from "three/src/renderers/webgpu/WebGPURenderer.js";
 import { color, Fn, mix, screenUV, smoothstep } from "three/tsl";
+import {
+  COLOUR_BACKGROUND_NODE_A,
+  COLOUR_BACKGROUND_NODE_B,
+} from "@/colours";
 import { WebGPURenderer } from "three/webgpu";
 import * as THREE from "three/webgpu";
 
@@ -41,7 +45,11 @@ const MagicPlaneCanvas: FC<Props> = ({ isMobile }) => {
   const backgroundNode = useMemo(() => {
     return Fn(() => {
       const mixAmount = smoothstep(0.1, 0.4, screenUV.y);
-      return mix(color("#292826"), color("#191818"), mixAmount);
+      return mix(
+        color(COLOUR_BACKGROUND_NODE_A),
+        color(COLOUR_BACKGROUND_NODE_B),
+        mixAmount
+      );
     })();
   }, []);
 

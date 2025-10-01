@@ -43,6 +43,11 @@ import {
   Stage,
   useGameStore,
 } from "@/hooks/useGameStore";
+import {
+  COLOUR_FRACTAL_BG,
+  COLOUR_LIGHT_WAVES_DARK,
+  COLOUR_LIGHT_WAVES_LIGHT,
+} from "@/colours";
 
 import Player from "./Player";
 import { getGrainyNoise } from "./tslHelpers";
@@ -186,8 +191,9 @@ export const MagicPlane: FC = () => {
         p.mulAssign(lacunarity);
       });
 
-      const colorA = color("#191818");
-      const colorB = color("#C7C1B3");
+      // Fractal background tint
+      const colorA = color(COLOUR_FRACTAL_BG);
+      const colorB = color(COLOUR_FRACTAL_BG);
 
       const colour = mix(colorA, colorB, result);
 
@@ -256,8 +262,9 @@ export const MagicPlane: FC = () => {
         );
         const softenedRings = rings.mul(0.5).add(0.5);
 
-        const colourA = color("#FDFCFA");
-        const colourB = color("#191818");
+        // Light waves palette
+        const colourA = color(COLOUR_LIGHT_WAVES_LIGHT);
+        const colourB = color(COLOUR_LIGHT_WAVES_DARK);
 
         const pulsesColor = vec4(
           mix(colourB, colourA, softenedRings),

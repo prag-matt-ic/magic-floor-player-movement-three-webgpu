@@ -25,6 +25,7 @@ import {
   vec3,
   vec4,
 } from "three/tsl";
+import { COLOUR_PARTICLES } from "@/colours";
 import { WebGPURenderer } from "three/webgpu";
 
 import { PLANE_RADIUS, useGameStore } from "@/hooks/useGameStore";
@@ -128,7 +129,7 @@ export const Particles: FC = () => {
         const sharpCircle = step(0.5, centeredUv).oneMinus();
         const softCircle = smoothstep(0.0, 0.35, centeredUv).oneMinus();
         const circle = mix(sharpCircle, softCircle, softness);
-        const c = color("#fff");
+        const c = color(COLOUR_PARTICLES);
         return vec4(c, circle);
       })();
 
